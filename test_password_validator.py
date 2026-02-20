@@ -2,7 +2,7 @@
 
 
 import unittest
-
+ 
 from password_validator import validate_password
 
 
@@ -14,6 +14,7 @@ class TestValidatePassword(unittest.TestCase):
     def test_accepts_min_length(self):
         self.assertTrue(validate_password("Ab1!xxxx"))  # 8 chars (SHOULD PASS)
     def test_accepts_max_length(self):
+        
         pw = "Ab1!" + "x" * 16  # total 20
         self.assertTrue(validate_password(pw))  # (SHOULD PASS)
         
@@ -24,6 +25,7 @@ class TestValidatePassword(unittest.TestCase):
 
     # R2: at least 1 letter and at least 1 digit
     def test_rejects_no_digit(self):
+        
         self.assertFalse(validate_password("Abcdefg!"))  # has letter, no digit
 
     def test_rejects_no_letter(self):
@@ -32,6 +34,7 @@ class TestValidatePassword(unittest.TestCase):
 
     # R3: no spaces
     def test_rejects_spaces(self):
+        
         self.assertFalse(validate_password("Ab1!xx x"))  # contains space
 
     # R4: includes at least 1 special from !@#$%
@@ -48,3 +51,6 @@ class TestValidatePassword(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+

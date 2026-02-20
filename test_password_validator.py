@@ -10,14 +10,14 @@ class TestValidatePassword(unittest.TestCase):
     # R1: length 8–20 inclusive
     def test_rejects_too_short(self):
         self.assertFalse(validate_password("Ab1!xxx"))  # 7 chars (SHOULD FAIL)
-
+        
     def test_accepts_min_length(self):
         self.assertTrue(validate_password("Ab1!xxxx"))  # 8 chars (SHOULD PASS)
-
+        
     def test_accepts_max_length(self):
         pw = "Ab1!" + "x" * 16  # total 20
         self.assertTrue(validate_password(pw))  # (SHOULD PASS)
-
+        
     def test_rejects_too_long(self):
         pw = "Ab1!" + "x" * 17  # total 21
         self.assertFalse(validate_password(pw)) # (SHOULD FAIL)
@@ -49,3 +49,4 @@ class TestValidatePassword(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+

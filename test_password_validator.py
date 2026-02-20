@@ -1,4 +1,4 @@
-#Test Password Validator
+# Test Password Validator
 
 
 import unittest
@@ -13,7 +13,6 @@ class TestValidatePassword(unittest.TestCase):
         
     def test_accepts_min_length(self):
         self.assertTrue(validate_password("Ab1!xxxx"))  # 8 chars (SHOULD PASS)
-        
     def test_accepts_max_length(self):
         pw = "Ab1!" + "x" * 16  # total 20
         self.assertTrue(validate_password(pw))  # (SHOULD PASS)
@@ -49,4 +48,5 @@ class TestValidatePassword(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
 
